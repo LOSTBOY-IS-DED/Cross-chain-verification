@@ -1,0 +1,140 @@
+{
+  "accounts": [
+    {
+      "discriminator": [
+        168,
+        130,
+        124,
+        170,
+        250,
+        14,
+        50,
+        251
+      ],
+      "name": "VerificationData"
+    }
+  ],
+  "address": "5kGxzMrYSwfX1QAiW3xMqnaiYuos5pSakZpfz6YFGHAe",
+  "errors": [
+    {
+      "code": 6000,
+      "msg": "Invalid signature",
+      "name": "InvalidSignature"
+    }
+  ],
+  "instructions": [
+    {
+      "accounts": [
+        {
+          "name": "verification_account"
+        }
+      ],
+      "args": [],
+      "discriminator": [
+        241,
+        227,
+        224,
+        89,
+        40,
+        119,
+        116,
+        249
+      ],
+      "name": "get_verification_data"
+    },
+    {
+      "accounts": [
+        {
+          "name": "user",
+          "signer": true,
+          "writable": true
+        },
+        {
+          "name": "verification_account",
+          "signer": true,
+          "writable": true
+        },
+        {
+          "address": "11111111111111111111111111111111",
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "signature_r",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "signature_s",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "recovery_id",
+          "type": "u8"
+        }
+      ],
+      "discriminator": [
+        91,
+        139,
+        24,
+        69,
+        251,
+        162,
+        245,
+        112
+      ],
+      "name": "verify_signature"
+    }
+  ],
+  "metadata": {
+    "description": "Created with Anchor",
+    "name": "cross_chain",
+    "spec": "0.1.0",
+    "version": "0.1.0"
+  },
+  "types": [
+    {
+      "name": "VerificationData",
+      "type": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "signer_pubkey",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "is_verified",
+            "type": "bool"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ],
+        "kind": "struct"
+      }
+    }
+  ]
+}
